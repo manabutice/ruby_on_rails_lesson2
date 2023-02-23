@@ -5,19 +5,21 @@ h1 タスクの新規登録
 
 
 = form_with model: @task, local: true do |f|
-
   .form-group
     = f.label :name
     = f.text_field :name, class: 'form-control', id: 'task_name'
   .form-group
     = f.label :description
-    = f.text_area :description, class: 'form-control', id: 'task_description'
+    = f.text_area :description, row: 5, class: 'form-control', id: 'task_description'
   .form-group
-    = f.label :status
-    = f.select :status, Task::STATUS, {}, class: 'form-control', id: 'task_status'
+    = f.submit nil, class: 'btn btn-primary'
 
-  .form-group
-    = f.label :deadline
-    = f.datetime_select :deadline, default: Time.now, class: 'form-control', id: 'task_deadline' 
-  = f.submit nil, class: 'btn btn-primary'
+  / .form-group
+  /   = f.label :status
+  /   = f.select :status, options_for_select(@statuses), {}, { class: 'form-control' }
+
+
+  / .form-group
+  /   = f.label :deadline
+  /   = f.datetime_select :deadline, default: Time.now, class: 'form-control', id: 'task_deadline' 
 

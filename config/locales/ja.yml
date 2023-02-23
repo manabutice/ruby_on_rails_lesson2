@@ -1,264 +1,225 @@
+---
 ja:
   activerecord:
     errors:
       messages:
-        record_invalid: '保存に失敗しました: %{errors}'
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
-          has_many: "%{record}に関連する%{model}が存在するため、削除できません"
-          has_one: "%{record}に関連する%{model}が存在するため、削除できません"
-        taken: '%{value}はすでに存在します'
-        blank: "を入力してください"
-        empty: "を入力してください"
-        too_long: "は%{count}文字以内で入力してください"
-        too_short: "は%{count}文字以上で入力してください"
-        wrong_length: "は%{count}文字で入力してください"
-        not_a_number: "は数値で入力してください"
-        not_an_integer: "は整数で入力してください"
-        greater_than: "%{count}より大きい値にしてください"
-        greater_than_or_equal_to: "%{count}以上の値にしてください"
-        equal_to: "%{count}にしてください"
-        less_than: "%{count}より小さい値にしてください"
-        less_than_or_equal_to: "%{count}以下の値にしてください"
-        odd: "は奇数で入力してください"
-        even: "は偶数で入力してください"
-      template:
-        header:
-          one: "保存できませんでした: 1つのエラーがあります"
-          other: "保存できませんでした: %{count}のエラーがあります"
-        body: "以下の項目を修正してください:"
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    models:
+      task: タスク
     attributes:
-      # モデル名
-      # テーブル名
-      # 関連名
-      # など
-      # ここで属性名の置き換えを定義できます
-      # 例: User => ユーザー, Email => メールアドレス
-      # "属性名" (model_name): "翻訳された文字列"
-      password: "パスワード"
-      password_confirmation: "パスワード（確認用）"
-      email: "メールアドレス"
-      name: "名前"
-      created_at: "作成日"
-      updated_at: "更新日"
+      task:
+        id: ID
+        name: 名称
+        description: 詳しい説明
+        image: 画像
+        created_at: 登録日時
+        updated_at: 更新日時
+      user:
+        name: 名前
+        email: メールアドレス
+        admin: 管理者権限
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        created_at: 登録日時
+        updated_at: 更新日時
   date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
     formats:
       default: "%Y/%m/%d"
-      short: "%b %d"
-      long: "%B %d, %Y"
-      only_day: "%-d日"
-      without_year: "%m/%d"
-    day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
-    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
-    month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
-abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
-order:
-  - year
-  - month
-  - day
-datetime:
-distance_in_words:
-  half_a_minute: "数秒前"
-  less_than_x_seconds:
-    one: "1秒未満"
-    other: "%{count}秒未満"
-  x_seconds:
-    one: "1秒"
-    other: "%{count}秒"
-  less_than_x_minutes:
-    one: "1分未満"
-    other: "%{count}分未満"
-  x_minutes:
-    one: "1分"
-    other: "%{count}分"
-  about_x_hours:
-    one: "約1時間"
-    other: "約%{count}時間"
-  x_days:
-    one: "1日"
-    other: "%{count}日"
-  about_x_months:
-    one: "約1ヶ月"
-    other: "約%{count}ヶ月"
-  x_months:
-    one: "1ヶ月"
-    other: "%{count}ヶ月"
-  about_x_years:
-    one: "約1年"
-    other: "約%{count}年"
-  over_x_years:
-    one: "1年以上"
-    other: "%{count}年以上"
-  almost_x_years:
-    one: "もうすぐ1年"
-    other: "もうすぐ%{count}年"
-prompts:
-  year: "年"
-  month: "月"
-  day: "日"
-  hour: "時"
-  minute: "分"
-  second: "秒"
-time:
-formats:
-  default: "%H:%M"
-  am: "%p %I:%M"
-  pm: "%p %I:%M"
-am: "午前"
-pm: "午後"
-support:
-array:
-  last_word_connector: "、"
-  two_words_connector: "と"
-  words_connector: "、"
-helpers:
-select:
-  prompt: "選択してください"
-submit:
-  create: "作成"
-  update: "更新"
-  submit: "送信"
-label:
-  create: "作成"
-  update: "更新"
-number:
-format:
-  separator: "."
-  delimiter: ","
-  precision: 3
-  significant: false
-  strip_insignificant_zeros: false
-currency:
-  format:
-    unit: "円"
-    format: "%u%n"
-    separator: "."
-    delimiter: ","
-    precision: 0
-    significant: false
-    strip_insignificant_zeros: true
-  name: "Japanese Yen"
-  percentage:
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+    month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_years:
+        one: 1年
+        other: "%{count}年"
+    prompts:
+      second: 秒
+      minute: 分
+      hour: 時
+      day: 日
+      month: 月
+      year: 年
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: を受諾してください
+      blank: を入力してください
+      confirmation: と%{attribute}の入力が一致しません
+      empty: を入力してください
+      equal_to: は%{count}にしてください
+      even: は偶数にしてください
+      exclusion: は予約されています
+      greater_than: は%{count}より大きい値にしてください
+      greater_than_or_equal_to: は%{count}以上の値にしてください
+      inclusion: は一覧にありません
+      invalid: は不正な値です
+      less_than: は%{count}より小さい値にしてください
+      less_than_or_equal_to: は%{count}以下の値にしてください
+      model_invalid: 'バリデーションに失敗しました: %{errors}'
+      not_a_number: は数値で入力してください
+      not_an_integer: は整数で入力してください
+      odd: は奇数にしてください
+      other_than: は%{count}以外の値にしてください
+      present: は入力しないでください
+      required: を入力してください
+      taken: はすでに存在します
+      too_long: は%{count}文字以内で入力してください
+      too_short: は%{count}文字以上で入力してください
+      wrong_length: は%{count}文字で入力してください
+    template:
+      body: 次の項目を確認してください
+      header:
+        one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
+  helpers:
+    select:
+      prompt: 選択してください
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  number:
+    currency:
       format:
         delimiter: ","
-      sign: "%"
-  precision:
-      format:
-        delimiter: ","
-  human:
+        format: "%n%u"
+        precision: 0
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
       decimal_units:
         format: "%n %u"
         units:
-          unit: "ユニット"
-          thousand: "千"
-          million: "百万"
-          billion: "十億"
-          trillion: "兆"
-          quadrillion: "千兆"
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
       format:
-        delimiter: ""
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
       storage_units:
-        format: "%n %u"
+        format: "%n%u"
         units:
-          byte:
-            one: "バイト"
-            other: "バイト"
-          kb: "KB"
-          mb: "MB"
-          gb: "GB"
-          tb: "TB"
-              # 改行は使えないので気を付けてください
-            # また、使用する場合は \n で表現します
-  activerecord:
-      models:
-        # モデル名の翻訳
-        # 例: User => ユーザー
-        # "モデル名" (model_name): "翻訳された文字列"
-        user: "ユーザー"
-        account: "アカウント"
-      attributes:
-        # モデル名
-        # テーブル名
-        # 関連名
-        # など
-        # ここで属性名の置き換えを定義できます
-        # 例: User => ユーザー, Email => メールアドレス
-        # "属性名" (model_name): "翻訳された文字列"
-        user:
-          email: "メールアドレス"
-          password: "パスワード"
-          password_confirmation: "パスワード（確認用）"
-        account:
-          name: "アカウント名"
-          plan: "プラン"
-      errors:
-        messages:
-          record_invalid: '保存に失敗しました: %{errors}'
-        models:
-          # モデル名の翻訳
-          # 例: User => ユーザー
-          # "モデル名" (model_name): "翻訳された文字列"
-          user: "ユーザー"
-        attributes:
-          # モデル名
-          # テーブル名
-          # 関連名
-          # など
-          # ここで属性名の置き換えを定義できます
-          # 例: User => ユーザー, Email => メールアドレス
-          # "属性名" (model_name): "翻訳された文字列"
-          user:
-            email:
-              taken: '%{value}はすでに存在します'
-              invalid: "が正しくありません"
-            password:
-              confirmation: "が一致しません"
-            name:
-              taken: "%{value}"
-            blank: "を入力してください"
-            created_at:
-              blank: "を入力してください"
-              taken: "がすでに存在します"
-            updated_at:
-              blank: "を入力してください"
-          account:
-            name:
-              taken: "がすでに存在します"
-              blank: "を入力してください"
-            plan:
-              invalid: "が正しくありません"
-        full_messages:
-          format: "%{attribute}%{message}"
-      messages:
-        # 全体のエラーメッセージの翻訳
-        # ここでエラーメッセージを置き換えることができます
-        # 例: "can't be blank" => "は必須項目です"
-        blank: "は必須項目です"
-        present: "は空であってはいけません"
-        absent: "は空でなければいけません"
-        confirmation: "と%{attribute}の入力が一致しません"
-        accepted: "は有効でなければいけません"
-        empty: "は空であってはいけません"
-        equal_to: "は%{count}でなければいけません"
-        even: "は偶数であってはいけません"
-        exclusion: "は有効な値ではありません"
-        greater_than: "は%{count}より大きくなければいけません"
-        greater_than_or_equal_to: "は%{count}以上でなければいけません"
-        inclusion: "は有効な値ではありません"
-        invalid: "は無効です"
-        less_than: "は%{count}より小さくなければいけません"
-        less_than_or_equal_to: "は%{count}以下でなければいけません"
-        model_invalid: "保存に失敗しました"
-        not_a_number: "は数字ではありません"
-        not_an_integer: "は整数であってはいけません"
-        odd: "は奇数であってはいけません"
-        record_invalid: "検証に失敗しました: %{errors}"
-        restrict_dependent_destroy:
-          one: "%{model}が存在するため、削除できません"
-          many: "%{model}が存在するため、削除できません"
-        taken: "はすでに存在します"
-        too_long: "は%{count}文字以内で入力してください"
-        too_short: "は%{count}文字以上で入力してください"
-        wrong_length: "は%{count}文字で入力してください"
-  helpers:
-      select:
-        prompt: "選択してください"
+          byte: バイト
+          eb: EB
+          gb: GB
+          kb: KB
+          mb: MB
+          pb: PB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: "、"
+      two_words_connector: "、"
+      words_connector: "、"
+  time:
+    am: 午前
+    formats:
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      long: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
+    pm: 午後
