@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
+
   def index
+    # binding.pry
     @tasks = Task.all
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def new
@@ -12,13 +13,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(task_params)
-    task.save
-    redirect_to task_path(@task), notice: "タスク「#{@task.name}」を登録しました。"
+    @task = Task.new(task_params)
+    @task.save!
+    redirect_to tasks_url, notice: "タスク「#{@task.name}」を登録しました。"
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   private
