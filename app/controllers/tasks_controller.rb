@@ -26,10 +26,9 @@ class TasksController < ApplicationController
   end
   
   def destroy
+      @task = Task.find(params[:id])
       @task.destroy
-      # if params[:show_page]
       redirect_to tasks_url, notice: "タスク「#{@task.name}」を削除しました。"
-      # end
   end
   
   def create
